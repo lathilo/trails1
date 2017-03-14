@@ -1,4 +1,4 @@
-<% @products.each do |product| %>
+<%# @products.each do |product| %>
   <div class="col-sm-2 col-md-4">
     <%= image_tag(product.image_url, class: "img-responsive thumbnail") %>
     <h2><%= product.name %></h2>
@@ -11,6 +11,6 @@
     <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
 
   </div><!-- /col -->
-<% end %>
+<%# end %>
 
 
