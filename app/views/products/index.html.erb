@@ -4,23 +4,10 @@
 <div class="container-fluid layout-product">
   <h1>Products</h1>
   <div class="row">
-    <% @products.each do |product| %>
-        <div class="col-sm-2 col-md-4">
-          <%= image_tag(product.image_url, class: "img-responsive thumbnail") %>
-          <h2><%= product.name %></h2>
-          <p><%= product.description %></p>
-          <p><%= product.colour %></p>
-          <p><%= product.price %></p>
-          <tr>
-            <td><%= link_to 'Show', product %></td>
-            <td><%= link_to 'Edit', edit_product_path(product) %></td>
-            <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
-        </div><!-- /col -->
-    <% end %>
+      <%= render @products %>
+
   </div>
 </div>
-
 
 <br>
 
