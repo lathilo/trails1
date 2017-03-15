@@ -7,8 +7,11 @@ Rails.application.routes.draw do
 
   get 'static_pages/contact'
 
-  #get 'static_pages/index'
-  # commented out above line and put in below line cf 3.8
+  get 'static_pages/index'
+
+  get 'static_pages/landing_page'
+
+  # commented out above line and put in below line cf 3.8 and put back in 5.1
   root 'static_pages#landing_page'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

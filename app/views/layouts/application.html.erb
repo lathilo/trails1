@@ -25,15 +25,16 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Home</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Products</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><%= link_to "Home", static_pages_index_path %></li>
+            <li class="active"><%= link_to "Products", products_path %></li>
+            <li><%= link_to "About", static_pages_about_path %></li>
+            <li><%= link_to "Contact", static_pages_contact_path %></li>
+            <li><%= link_to "Special offers", static_pages_landing_page_path %></li>
           </ul>
           <form class="navbar-form navbar-left">
             <div class="form-group">
@@ -42,6 +43,7 @@
             <button type="submit" class="btn btn-default">Submit</button>
           </form>
           <ul class="nav navbar-nav navbar-right">
+            <li><%=link_to ('<span class="glyphicon glyphicon-step-backward"></span>Back').html_safe, :back%></li>
             <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
             <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
           </ul>
