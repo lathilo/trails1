@@ -12,31 +12,32 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.label :name, class: "field_header" %>
+    <%= f.text_field :name, class: "field_input" %>
   </div>
 
   <div class="field">
-    <%= f.label :description %>
-    <%= f.text_area :description %>
+    <%= f.label :description, class: "field_header" %>
+    <%= f.text_area :description, class: "field_input" %>
   </div>
 
   <div class="field">
-    <%= f.label :image_url %>
-    <%= f.text_field :image_url %>
+    <%= f.label :image_url, class: "field_header" %>
+    <%= f.text_field :image_url, class: "field_input" %>
   </div>
+
+    <div class="field">
+      <%= f.label :colour, class: "field_header" %><br>
+      <%= f.text_field :colour, class: "field_input" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :price, class: "field_header" %><br>
+      <%= f.text_field :price, class: "field_input" %>
+    </div>
 
   <div class="actions">
     <%= f.submit %>
   </div>
 
-  <div class="field">
-    <%= f.label :colour %><br>
-    <%= f.text_field :colour %>
-  </div>
-
-    <div class="field">
-      <%= f.label :price %><br>
-      <%= f.text_field :price %>
-    </div>
 <% end %>

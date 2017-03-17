@@ -35,13 +35,14 @@
             <li><%= link_to "About", static_pages_about_path %></li>
             <li><%= link_to "Contact", static_pages_contact_path %></li>
             <li><%= link_to "Special offers", static_pages_landing_page_path %></li>
+
+          <!--5.2 search code starts here-->
+            <li class="navbar-form"><%= form_tag("/products", method: "get") do %>
+                  <% label_tag(:q, "Search for:") %>
+                  <%= text_field_tag(:q) %>
+                  <%= submit_tag("Search") %>
+              <% end %></li>
           </ul>
-          <form class="navbar-form navbar-left">
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search">
-            </div>
-            <button type="submit" class="btn btn-default">Submit</button>
-          </form>
           <ul class="nav navbar-nav navbar-right">
             <li><%=link_to ('<span class="glyphicon glyphicon-step-backward"></span>Back').html_safe, :back%></li>
             <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
