@@ -55,3 +55,7 @@ gem 'coffee-script-source', '1.8.0'
 group :production do
   gem 'pg'
 end
+
+# 5.4 for authentication
+gem 'devise'
+
