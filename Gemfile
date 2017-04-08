@@ -59,3 +59,5 @@ end
 # 5.4 for authentication
 gem 'devise'
 
+# 5.5 for authorization
+gem 'cancancan', '~> 1.10'

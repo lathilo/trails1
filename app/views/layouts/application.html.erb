@@ -35,6 +35,8 @@
             <li><%= link_to "About", static_pages_about_path %></li>
             <li><%= link_to "Contact", static_pages_contact_path %></li>
             <li><%= link_to "Special offers", static_pages_landing_page_path %></li>
+            <li> <%= link_to "Users", users_path %></li>
+
 
           <!--5.2 search code starts here-->
             <li class="navbar-form"><%= form_tag("/products", method: "get") do %>
@@ -45,7 +47,14 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><%=link_to ('<span class="glyphicon glyphicon-step-backward"></span>Back').html_safe, :back%></li>
-            <li><%= link_to('Sign up', new_user_registration_path) %></li>
+
+            <li>
+              <% if user_signed_in? %>
+                <%= link_to 'Edit', edit_user_registration_path %>
+              <% else %>
+                <%= link_to('Sign up', new_user_registration_path) %>
+              <% end %>
+            </li>
 
             <li>
               <% if user_signed_in? %>
@@ -60,8 +69,12 @@
     </nav>
 
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <% if notice %>
+      <p id="notice" class="alert alert-info"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+        <p id="alert" class="alert alert-info"><%= alert %></p>
+    <% end %>
 
     <div class="page-wrap">
     <%= yield %>
