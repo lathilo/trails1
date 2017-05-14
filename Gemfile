@@ -66,3 +66,6 @@ gem 'cancancan', '~> 1.10'
 
 # 5.9 for pagination
 gem 'will_paginate', '~> 3.1.0'
+
+# 6.3 Functional tests
+gem 'rails-controller-testing'
