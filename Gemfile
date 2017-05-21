@@ -40,6 +40,8 @@ group :development, :test do
   gem 'sqlite3'
   # 6.1 rspec-rails testing
   gem 'rspec-rails', '~> 3.5'
+  # 6.4 FactoryGirl
+  gem "factory_girl_rails", "~> 4.0"
 end
 
 group :development do
@@ -69,3 +71,4 @@ gem 'will_paginate', '~> 3.1.0'
 
 # 6.3 Functional tests
 gem 'rails-controller-testing'
+
