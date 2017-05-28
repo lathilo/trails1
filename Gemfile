@@ -72,3 +72,6 @@ gem 'will_paginate', '~> 3.1.0'
 # 6.3 Functional tests
 gem 'rails-controller-testing'
 
+# 6.5 Payment forms with Stripe
+gem 'stripe'
+
