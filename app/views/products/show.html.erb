@@ -3,63 +3,60 @@
 
   <div class="row">
     <!--<div class="col-sm-6 col-md-4">-->
-      <div class="thumbnail">
 
-          <%= image_tag @product.image_url, class: 'img-responsive' %>
+    <%= image_tag(@product.image_url, width:"350px", data_zoom_image: image_path("large/" + @product.image_url), class: "thumbnail image-zoom image-responsive") %>
 
-        <div class="caption">
-          <p>
-            <strong>Name:</strong>
-            <%= @product.name %>
-          </p>
+    <div class="caption">
+      <p>
+        <strong>Name:</strong>
+        <%= @product.name %>
+      </p>
 
-          <p>
-            <strong>Description:</strong>
-            <%= @product.description %>
-          </p>
+      <p>
+        <strong>Description:</strong>
+        <%= @product.description %>
+      </p>
 
-          <p>
-            <strong>Colour:</strong>
-            <%= @product.colour %>
-          </p>
+      <p>
+        <strong>Colour:</strong>
+        <%= @product.colour %>
+      </p>
 
-          <p>
-            <strong>Price:</strong>
-            <%= @product.price.to_d %>
-          </p>
-          <% if user_signed_in? %>
-              <%= form_tag "/payments/create" do %>
-                <%= render partial: "shared/stripe_checkout_button" %>
-                <%= hidden_field_tag(:product_id, @product.id) %>
-              <% end %>
+      <p>
+        <strong>Price:</strong>
+        <%= @product.price.to_d %>
+      </p>
+      <% if user_signed_in? %>
+          <%= form_tag "/payments/create" do %>
+            <%= render partial: "shared/stripe_checkout_button" %>
+            <%= hidden_field_tag(:product_id, @product.id) %>
           <% end %>
+      <% end %>
 
-          <p>Average Rating: <div class="rated stars" data-score="<%= @product.average_rating %>"></div> </p>
+      <p>Average Rating: <div class="rated stars" data-score="<%= @product.average_rating %>"></div> </p>
 
-          <% if signed_in? %>
-              <h4>Add a review:</h4>
-              <%= form_for([@product, @product.comments.build]) do |f| %>
-                  <p>
-                    <%= f.label :body, "Comments" %><br>
-                    <%= f.text_area :body %>
-                  </p>
+      <% if signed_in? %>
+          <h4>Add a review:</h4>
+          <%= form_for([@product, @product.comments.build]) do |f| %>
+              <p>
+                <%= f.label :body, "Comments" %><br>
+                <%= f.text_area :body %>
+              </p>
 
-                  <p>
-                  <div class="rating"></div>
-                  </p>
+              <p>
+              <div class="rating"></div>
+              </p>
 
-                  <p>
-                    <%= f.submit "Submit" %>
-                  </p>
-              <% end %>
+              <p>
+                <%= f.submit "Submit" %>
+              </p>
           <% end %>
+      <% end %>
 
-          <%= render 'comments' %>
+      <%= render 'comments' %>
 
-
-        </div>
-      <!--</div>-->
     </div>
+
   </div>
 
 
