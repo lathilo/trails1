@@ -75,3 +75,6 @@ gem 'rails-controller-testing'
 # 6.5 Payment forms with Stripe
 gem 'stripe'
 
+# 6.8 Security
+
+gem 'brakeman', :require =>false
