@@ -78,3 +78,7 @@ gem 'stripe'
 # 6.8 Security
 
 gem 'brakeman', :require =>false
+
+# 6.11 Caching
+
+gem 'dalli'

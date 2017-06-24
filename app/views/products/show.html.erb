@@ -7,16 +7,17 @@
     <%= image_tag(@product.image_url, width:"350px", data_zoom_image: image_path("large/" + @product.image_url), class: "thumbnail image-zoom image-responsive") %>
 
     <div class="caption">
-      <p>
-        <strong>Name:</strong>
-        <%= @product.name %>
-      </p>
+      <% cache @product do %>
+        <p>
+          <strong>Name:</strong>
+          <%= @product.name %>
+        </p>
 
-      <p>
-        <strong>Description:</strong>
-        <%= @product.description %>
-      </p>
-
+        <p>
+          <strong>Description:</strong>
+          <%= @product.description %>
+        </p>
+      <% end %>
       <p>
         <strong>Colour:</strong>
         <%= @product.colour %>
