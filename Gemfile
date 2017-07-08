@@ -82,3 +82,6 @@ gem 'brakeman', :require =>false
 # 6.11 Caching
 
 gem 'dalli'
+
+# 6.2 Redis
+gem 'redis-rails'
