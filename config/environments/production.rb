@@ -83,6 +83,9 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  # Using ActionCables on Heroku
+  config.web_socket_server_url = "wss://tj-shop.herokuapp.com/cable"
+  config.action_cable.allowed_request_origins = ['https://tj-shop.herokuapp.com', 'http://tj-shop.herokuapp.com']
 end
 
 # 6.11 caching

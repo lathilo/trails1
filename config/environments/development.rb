@@ -55,4 +55,8 @@ Rails.application.configure do
   # 5.4 authentication: dynamic links that show up  inside emals from dev. env. generate right URLs
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   default_url_options
+
+  #6.13
+  config.app_generators.javascript_engine = :javascript
+
 end
