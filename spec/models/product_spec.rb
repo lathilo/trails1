@@ -22,6 +22,9 @@ describe Product do
       expect(Product.new(description: "testtest")).not_to be_valid
     end
   end
+
+  context
+
 end
 
 
