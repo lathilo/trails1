@@ -1,74 +1,73 @@
 <div class="container">
   <p id="notice"><%= notice %></p>
 
-  <div class="row" data-product-id="<%= @product.id %>">
-    <!--<div class="col-sm-6 col-md-4">-->
+  <div class="row product_show" data-product-id="<%= @product.id %>">
 
-    <%= image_tag(@product.image_url, width:"350px", data_zoom_image: image_path("large/" + @product.image_url), class: "thumbnail image-zoom image-responsive") %>
+    <div class="col-md-4 col-xs-12 product_show_img">
+      <%= image_tag(@product.image_url, width:"350px", data_zoom_image: image_path("large/" + @product.image_url), class: "thumbnail image-zoom image-responsive") %>
+    </div>
 
-    <div class="caption">
-      <% cache @product do %>
+      <div class="caption col-md-8 col-xs-12 product_show_description">
+        <% cache @product do %>
+          <p>
+            <strong>Name:</strong>
+            <%= @product.name %>
+          </p>
+
+          <p>
+            <strong>Description:</strong>
+            <%= @product.description %>
+          </p>
+        <% end %>
         <p>
-          <strong>Name:</strong>
-          <%= @product.name %>
+          <strong>Colour:</strong>
+          <%= @product.colour %>
         </p>
 
         <p>
-          <strong>Description:</strong>
-          <%= @product.description %>
+          <strong>Price:</strong>
+          <%= @product.price.to_d %>
         </p>
-      <% end %>
-      <p>
-        <strong>Colour:</strong>
-        <%= @product.colour %>
-      </p>
-
-      <p>
-        <strong>Price:</strong>
-        <%= @product.price.to_d %>
-      </p>
-      <% if user_signed_in? %>
-          <%= form_tag "/payments/create" do %>
-            <%= render partial: "shared/stripe_checkout_button" %>
-            <%= hidden_field_tag(:product_id, @product.id) %>
+        <div class="product_show-button">
+          <% if user_signed_in? %>
+              <%= form_tag "/payments/create" do %>
+                <%= render partial: "shared/stripe_checkout_button" %>
+                <%= hidden_field_tag(:product_id, @product.id) %>
+              <% end %>
           <% end %>
-      <% end %>
+        </div>
+        <p>Average Rating: <div id="average_rating" class="rated stars" data-score="<%= @product.average_rating %>"></div> </p>
+      </div>
 
-      <p>Average Rating: <div id="average_rating" class="rated stars" data-score="<%= @product.average_rating %>"></div> </p>
+      <div class="product_show_reviews">
+        <h6>
+          Views:
+          <span class="badge">
+            <%= @product.views %>
+          </span>
+        </h6>
 
-      <h6>
-        Views:
-        <span class="badge">
-          <%= @product.views %>
-        </span>
-      </h6>
+        <% if signed_in? %>
+            <h4>Add a review:</h4>
+            <%= form_for([@product, @product.comments.build]) do |f| %>
+                <p>
+                  <%= f.text_area :body %>
+                </p>
 
-      <% if signed_in? %>
-          <h4>Add a review:</h4>
-          <%= form_for([@product, @product.comments.build]) do |f| %>
-              <p>
-                <%= f.label :body, "Comments" %><br>
-                <%= f.text_area :body %>
-              </p>
-
-              <p>
-              <div class="rating"></div>
-              </p>
-
-              <p>
-                <%= f.submit "Submit" %>
-              </p>
-          <% end %>
-      <% end %>
+                <p>
+                  <%= f.submit "Submit" %>
+                </p>
+            <% end %>
+        <% end %>
+        <h4>Reviews:</h4>
+      </div>
 
       <div class="alert alert-info" style="display:none" role="alert">A new comment was posted!</div>
       <%= render 'comments' %>
+      </div>
 
-    </div>
 
   </div>
-
-
 
   <%= link_to 'Edit', edit_product_path(@product) %> |
   <%= link_to 'Back', products_path %>
