@@ -8,7 +8,7 @@ FactoryGirl.define do
   factory :product do
     name
     description
-    colour
+    colour "red"
     image_url "Product1.jpg"
     price "150"
 

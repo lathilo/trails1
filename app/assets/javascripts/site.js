@@ -13,7 +13,7 @@ var refreshRating = function() {
 
 $(document).on('turbolinks:load ajaxSuccess',function(){
 
-    $('.alert').delay(1000).fadeOut(1000);
+    $('.alert, .alert-info').delay(1500).fadeOut(1500);
 
     refreshRating();
 
