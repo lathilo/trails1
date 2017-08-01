@@ -1,9 +1,11 @@
 <% if current_user && current_user.admin? %>
 
+  <div class="basic_layout">
     <h1>New Product</h1>
-
+  </div>
 
   <%= render 'form', product: @product%>
 <% end %>
-
-<%= link_to 'Back', products_path %>
+<br />
+<br />
+<%= link_to 'Back', products_path, class:'btn btn-default' %>
