@@ -30,12 +30,11 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li><%= link_to "Home", static_pages_index_path %></li>
+            <li><%= link_to "Home", static_pages_landing_page_path %></li>
             <li><%= link_to "Products", products_path %></li>
-            <li><%= link_to "Special offers", static_pages_landing_page_path %></li>
+            <li><%= link_to "Special offers", static_pages_index_path %></li>
             <li><%= link_to "About", static_pages_about_path %></li>
             <li><%= link_to "Contact", static_pages_contact_path %></li>
-
 
           <!--5.2 search code starts here-->
             <li class="navbar-form"><%= form_tag("/products", method: "get") do %>
@@ -51,7 +50,7 @@
               <% if user_signed_in? %>
                 <%= link_to 'Edit', edit_user_registration_path %>
               <% else %>
-                <%= link_to('Sign up', new_user_registration_path) %>
+                <%= link_to 'Sign up', new_user_registration_path %>
               <% end %>
             </li>
 
