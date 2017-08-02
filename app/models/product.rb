@@ -5,7 +5,7 @@ class Product < ApplicationRecord
   validates :name, :description, :image_url, :colour, :price, presence: true
 
   def self.search(search_term)
-    Product.where('name LIKE ?', '%#{search_term}%')
+    Product.where("name LIKE ?", "%#{search_term}%")
   end
 
   def highest_rating_comment
@@ -27,4 +27,5 @@ class Product < ApplicationRecord
   def viewed!
     $redis.incr("product:#{id}")
   end
+
 end
