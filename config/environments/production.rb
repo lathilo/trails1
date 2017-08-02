@@ -86,7 +86,6 @@ Rails.application.configure do
   # Using ActionCables on Heroku
   config.web_socket_server_url = "wss://tj-shop.herokuapp.com/cable"
   config.action_cable.allowed_request_origins = ['https://tj-shop.herokuapp.com', 'http://tj-shop.herokuapp.com']
-end
 
 # 6.11 caching
 
@@ -99,3 +98,4 @@ config.cache_store = :dalli_store,
      :socket_failure_delay => 0.2,
      :down_retry_delay => 60
     }
+end
