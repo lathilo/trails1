@@ -15,3 +15,9 @@ class StaticPagesController < ApplicationController
 end
 
 
+private
+
+# Never trust parameters from the scary internet, only allow the white list through.
+def static_pages_params
+  params.require(:static_pages).permit(:name, :email, :message)
+end
