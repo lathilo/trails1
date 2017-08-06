@@ -61,14 +61,16 @@ describe ProductsController, :type => :controller do
 
   describe "DELETE #destroy" do
     before do
+      admin = FactoryGirl.create(:admin_user)
+      sign_in admin
       @product = FactoryGirl.create(:product)
-      @product2 = FactoryGirl.create(:product)
     end
 
     it "deletes a product" do
-      delete :destroy, params:{id: @product.id}
 
-      expect{@product.destroy}.to change(Product, :count).by(-1)
+      expect{
+        delete :destroy, params:{id: @product.id}
+      }.to change(Product, :count).by(-1)
 
     end
 
